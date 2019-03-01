@@ -35,7 +35,7 @@ def select_series_title_with_most_human_characters
   ON series.id = book.series_id
   INNER JOIN books ON character_books.book_id = books.id
   JOIN characters ON character_books.character_id = character.id
-  WHERE character.name = 'human'
+  WHERE characters.name = 'human'
   GROUP BY series.title
   HAVING COUNT(character_books.character_id) = (SELECT MAX(COUNT(character_books.character_id)))"
 end
